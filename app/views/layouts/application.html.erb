@@ -2,7 +2,7 @@
 <html>
   <head>
     <title>SampleAppDemo</title>
-    
+
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
@@ -15,7 +15,7 @@
     <header>
       <h1 class="headline">All Lists</h1>
     </header>
-    
+
     <nav>
       <ul class="nav-list">
         <li class="nav-list-item">
@@ -29,10 +29,13 @@
         </il>
       </ul>
     </nav>
-    
+
     <main>
-    <%= yield %>
+      <% flash.each do |message_type,message| %>
+        <div class="flash-message <%= message_type %>"><%= message %></div>
+      <% end %>
+      <%= yield %>
     </main>
-    
+
   </body>
 </html>
